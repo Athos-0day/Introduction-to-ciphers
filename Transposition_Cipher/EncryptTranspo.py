@@ -13,7 +13,7 @@ EncryptMessage = ""
 
 while n<Key :
     while k<=(Length//Key) :
-        print(n+k*Key)
+        
         if (n+k*Key)<Length :
             EncryptMessage += Message[n+k*Key]
         k+=1
