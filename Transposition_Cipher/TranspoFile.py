@@ -1,4 +1,4 @@
-import os, sys, string 
+import os, sys
 
 #The goal of this program is to Encrypt or Decrypt a file by using the Transposition Cipher
 #First thing is to know what the user whant
