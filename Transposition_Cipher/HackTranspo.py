@@ -41,20 +41,20 @@ def DecryptTranspo(CipherText,Key) :
         Message += val
     return Message
 
-while KeyNumber<=NumberOfKey or Verification :
+while KeyNumber<=NumberOfKey and not Verification :
 
     Text = DecryptTranspo(Content,KeyNumber) 
 
-    if StatEnglish(Text)>=0.20 :
+    if StatEnglish.StatEnglish(Text)>=0.20 :
         print()
         print(Text)
         print()
         S = input("Is it the plaintext ? Y or N ")
-        if S=='Y' :
+        if S.startswith('Y') :
             Verification = True
     
     KeyNumber += 1
-    Text = ""
+    
 
 if KeyNumber>NumberOfKey :
     print()
@@ -63,7 +63,7 @@ if KeyNumber>NumberOfKey :
 else :
     print()
     print("The hack succeed")
-    print("The file used the transpoition encryption with the %s key" % (KeyNumber-1))
+    print("The file used the transpoition encryption with the key %s" % (KeyNumber-1))
     returnFile = File + '.H'
     print("Writing in the %s file..." % (returnFile))
     NewFile = open(returnFile,'w')
