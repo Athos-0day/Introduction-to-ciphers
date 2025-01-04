@@ -11,8 +11,6 @@ For each cipher, we will work on a user interface and the goal is to hack a file
 
 Dans cet algorithme, on élabore un anagramme du mot initial, car en effet, on altère la position des caractères et non leurs valeurs.
 
-___
-
 ### Intéressons-nous à un exemple :
 
 Prenons la phrase suivante : 
@@ -20,7 +18,8 @@ Prenons la phrase suivante :
 
 La longueur de cette citation est de 40 caractères, les valeurs de clés possibles sont comprises entre 1 et 40. Prenons par exemple 9. La première étape consiste à écrire la phrase dans un tableau de 7 colonnes.
 
-<center> 
+Voici comment la phrase serait répartie sur un tableau de 9 colonnes :
+
 | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  |
 |----|----|----|----|----|----|----|----|----|
 | L  | e  | *  | t  | r  | a  | v  | a  | i  |
@@ -28,7 +27,6 @@ La longueur de cette citation est de 40 caractères, les valeurs de clés possib
 | é  | n  | é  | r  | a  | t  | i  | o  | n  |
 | *  | c  | o  | m  | m  | e  | n  | c  | e  |
 | *  | i  | c  | i  | -  | -  | -  | -  | -  |
-</center>
 
 En lisant colonne par colonne, on peut déduire le message chiffré. Il est important de noter que les `*` sont des espaces et les `-` sont des espaces non utilisés.
 
