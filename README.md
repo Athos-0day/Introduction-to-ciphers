@@ -1,5 +1,4 @@
 # Introduction to ciphers
----
 
 In this repository, I share my work on the book **Breaking codes with python**. This is not my first time on python, but I chose this book to learn the basics of ciphers and learn how to make a plan to break a number. There is also the historical side that interests me.
 
@@ -9,16 +8,16 @@ For each cipher, we will work on a user interface and the goal is to hack a file
 
 ## Transposition cipher
 
-Dans cet algorithme, on élabore un anagramme du mot initial, car en effet, on altère la position des caractères et non leurs valeurs.
+In this algorithm, we develop an anagram of the initial word, because indeed, we alter the position of the characters and not their values.
 
-### Intéressons-nous à un exemple :
+### Let’s look at an example :
 
-Prenons la phrase suivante : 
+Let’s take the following sentence : 
 > "Le travail d'une génération commence ici"
 
-La longueur de cette citation est de 40 caractères, les valeurs de clés possibles sont comprises entre 1 et 40. Prenons par exemple 9. La première étape consiste à écrire la phrase dans un tableau de 7 colonnes.
+The length of this quote is 40 characters, the possible key values are between 1 and 40. Take 9 for example. The first step is to write the sentence in a table of 7 columns.
 
-Voici comment la phrase serait répartie sur un tableau de 9 colonnes :
+The sentence would be divided into a table of 9 columns as follows:
 
 | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  |
 |----|----|----|----|----|----|----|----|----|
@@ -28,9 +27,9 @@ Voici comment la phrase serait répartie sur un tableau de 9 colonnes :
 | *  | c  | o  | m  | m  | e  | n  | c  | e  |
 | *  | i  | c  | i  | -  | -  | -  | -  | -  |
 
-En lisant colonne par colonne, on peut déduire le message chiffré. Il est important de noter que les `*` sont des espaces et les `-` sont des espaces non utilisés.
+Reading column by column, the encrypted message can be deduced. It is important to note that the `*`s are spaces and the `-`s are unused spaces.
 
-Le message chiffré est alors :  
+The encrypted message is then:  
 > **"Llé**e*nci*déoct'rmiruamanteveina*ocigne"  
 
 
