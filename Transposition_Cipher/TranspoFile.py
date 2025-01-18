@@ -29,7 +29,7 @@ if os.path.exists(ReturnFile) :
     print("The file that you want to %a already exists : %s " % (Mode,ReturnFile))
     print("Do you want to write on it ? ")
     Sure = input("If you're sure write Yes : ")
-    if Sure.startswith("Yes") :
+    if not Sure.startswith("Yes") :
         sys.exit()
 
 #The next step is to open the file and take the information that we need 
