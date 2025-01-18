@@ -32,71 +32,36 @@ Reading column by column, the encrypted message can be deduced. It is important 
 The encrypted message is then:  
 > **"Llé**e*nci*déoct'rmiruamanteveina*ocigne"  
 
-## The Affine Cipher
+## Affine Cipher
 
-The **Affine Cipher** is a substitution cipher method where each letter of the message is replaced by another according to an affine function. This affine function is defined by two parameters: **\(a\)** and **\(b\)**. The affine cipher is a simplified form of symmetric key encryption, using mathematical operations on the positions of characters in the alphabet.
+The **Affine Cipher** is a type of monoalphabetic substitution cipher, where each letter in an alphabet is replaced by another based on a mathematical function. The cipher uses two keys: **\(a\)** and **\(b\)**, which are used to transform the plaintext into ciphertext.
 
-### How the Affine Cipher Works
+### How it works
 
-The affine cipher relies on the application of an affine function in modular algebra. The encryption formula is as follows:
+The encryption function takes the position of a letter in the alphabet (for example, A = 0, B = 1, ..., Z = 25), then applies a mathematical formula that uses two keys: \(a\) (a multiplier) and \(b\) (a shift). The resulting value is then mapped back to a letter in the alphabet.
 
-![Affine Encryption Formula](https://latex.codecogs.com/svg.latex?E(x)%20=%20(a%20\cdot%20x%20+%20b)%20\mod%20m&bg=ffffff)
+To decrypt, the receiver applies the inverse of the function using the modular inverse of \(a\).
 
-Where:
-- \(E(x)\) is the encrypted character at position \(x\) in the alphabet.
-- \(a\) and \(b\) are the keys of the affine cipher, where:
-  - \(a\) must be an integer such that **\(a\)** and **\(m\)** (the length of the alphabet) are coprime (i.e., \(\text{gcd}(a, m) = 1\)).
-  - \(b\) is an integer that shifts the character within the alphabet.
-- \(m\) is the total number of symbols in the alphabet used (e.g., 26 for the Latin alphabet without accents).
+### Example
 
-#### Example of Encryption
-Let’s consider a simple alphabet with the 26 letters of the Latin alphabet:
+Let’s consider an example where we encrypt the word **"HELLO"** using the keys \(a = 5\) and \(b = 8\).
 
-\[
-\text{Alphabet} = \{A, B, C, ..., Z\}
-\]
+1. For **H** (position 7), we apply the formula to get the encrypted letter. This process is repeated for each letter in the word.
+2. After applying the formula for all letters, we get the ciphertext **"RCLLA"**.
 
-If we choose \(a = 5\) and \(b = 8\), the encryption function becomes:
+To decrypt, we apply the inverse of the encryption function using the modular inverse of \(a\), which gives us back the original word: **"HELLO"**.
 
-![Example Encryption Formula](https://latex.codecogs.com/svg.latex?E(x)%20=%20(5%20\cdot%20x%20+%208)%20\mod%2026&bg=ffffff)
+### Key Conditions
 
-Where \(x\) is the position of each letter in the alphabet. For example:
+- The multiplier \(a\) must be coprime with the number of letters in the alphabet (26 for English letters). This ensures that \(a\) has an inverse, which is needed for decryption.
+- The key \(b\) can be any integer, and it simply shifts the letters.
 
-- To encrypt the letter **A** (which is at position 0 in the alphabet), we apply the formula:
-  \[
-  E(0) = (5 \cdot 0 + 8) \mod 26 = 8 \quad \Rightarrow \quad \text{the encrypted letter is H}
-  \]
-  
-- To encrypt the letter **B** (position 1), we apply the formula:
-  \[
-  E(1) = (5 \cdot 1 + 8) \mod 26 = 13 \quad \Rightarrow \quad \text{the encrypted letter is N}
-  \]
+### Limitations
 
-This process continues for each letter in the message.
+- The Affine Cipher is vulnerable to **frequency analysis** because it is a substitution cipher, and frequent letters in the ciphertext can give clues about the plaintext.
+- The number of possible key pairs is limited by the requirement that \(a\) must be coprime with 26, restricting the choices for the encryption keys.
 
-### Decryption of the Affine Cipher
+### Key Takeaways
 
-Decryption of the affine cipher requires the inverse of the affine function, which involves using the modular inverse of \(a\), denoted \(a^{-1}\). The decryption formula is then:
-
-![Affine Decryption Formula](https://latex.codecogs.com/svg.latex?D(y)%20=%20a^{-1}%20\cdot%20(y%20-%20b)%20\mod%20m&bg=ffffff)
-
-Where:
-- \(D(y)\) is the decrypted position of the encrypted character \(y\).
-- \(a^{-1}\) is the modular inverse of \(a\) modulo \(m\), i.e., a number such that \(a \cdot a^{-1} \equiv 1 \mod m\).
-- \(b\) is the same value used in encryption.
-
-#### Example of Decryption
-Let’s revisit the example where \(a = 5\) and \(b = 8\). To decrypt, we need the modular inverse of \(a = 5\) modulo 26, which is \(a^{-1} = 21\) (because \(5 \cdot 21 \equiv 1 \mod 26\)).
-
-Let’s say we have an encrypted message, for example, "H" (which corresponds to position 7 in the alphabet). To decrypt it, we apply the formula:
-
-![Decryption Example](https://latex.codecogs.com/svg.latex?D(7)%20=%2021%20\cdot%20(7%20-%208)%20\mod%2026%20=%2021%20\cdot%20(-1)%20\mod%2026%20=%2021%20\cdot%2025%20\mod%2026%20=%2019&bg=ffffff)
-
-This gives us the letter **T**, which was the original letter before encryption.
-
-### Conditions for Valid Use
-For the affine cipher to work properly:
-1. **\(a\)** must be invertible modulo \(m\), meaning \(\text{gcd}(a, m) = 1\). This ensures that \(a^{-1}\) exists.
-2. The affine cipher is thus limited by this condition on \(a\), which restricts the possible choices for the key.
-
----
+- The Affine Cipher is easy to implement and use, but it is not secure for large-scale encryption due to its vulnerability to attacks like frequency analysis.
+- It provides a good introduction to basic encryption techniques and modular arithmetic in cryptography.
