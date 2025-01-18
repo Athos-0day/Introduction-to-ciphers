@@ -40,7 +40,7 @@ The **Affine Cipher** is a substitution cipher method where each letter of the m
 
 The affine cipher relies on the application of an affine function in modular algebra. The encryption formula is as follows:
 
-![Affine Encryption Formula](https://latex.codecogs.com/svg.latex?E(x)%20=%20(a%20\cdot%20x%20+%20b)%20%5Cmod%20m)
+![Affine Encryption Formula](https://latex.codecogs.com/svg.latex?E(x)%20=%20(a%20\cdot%20x%20+%20b)%20%5Cmod%20m%bg=transparent)
 
 Where:
 - \(E(x)\) is the encrypted character at position \(x\) in the alphabet.
@@ -58,7 +58,7 @@ Let’s consider a simple alphabet with the 26 letters of the Latin alphabet:
 
 If we choose \(a = 5\) and \(b = 8\), the encryption function becomes:
 
-![Example Encryption Formula](https://latex.codecogs.com/svg.latex?E(x)%20=%20(5%20\cdot%20x%20+%208)%20%5Cmod%2026)
+![Example Encryption Formula](https://latex.codecogs.com/svg.latex?E(x)%20=%20(5%20\cdot%20x%20+%208)%20%5Cmod%2026%bg=transparent)
 
 Where \(x\) is the position of each letter in the alphabet. For example:
 
@@ -78,7 +78,7 @@ This process continues for each letter in the message.
 
 Decryption of the affine cipher requires the inverse of the affine function, which involves using the modular inverse of \(a\), denoted \(a^{-1}\). The decryption formula is then:
 
-![Affine Decryption Formula](https://latex.codecogs.com/svg.latex?D(y)%20=%20a^{-1}%20\cdot%20(y%20-%20b)%20\mod%20m)
+![Affine Decryption Formula](https://latex.codecogs.com/svg.latex?D(y)%20=%20a^{-1}%20\cdot%20(y%20-%20b)%20\mod%20m%bg=transparent)
 
 Where:
 - \(D(y)\) is the decrypted position of the encrypted character \(y\).
@@ -90,7 +90,7 @@ Let’s revisit the example where \(a = 5\) and \(b = 8\). To decrypt, we need t
 
 Let’s say we have an encrypted message, for example, "H" (which corresponds to position 7 in the alphabet). To decrypt it, we apply the formula:
 
-![Decryption Example](https://latex.codecogs.com/svg.latex?D(7)%20=%2021%20\cdot%20(7%20-%208)%20\mod%2026%20=%2021%20\cdot%20(-1)%20\mod%2026%20=%2021%20\cdot%2025%20\mod%2026%20=%2019)
+![Decryption Example](https://latex.codecogs.com/svg.latex?D(7)%20=%2021%20\cdot%20(7%20-%208)%20\mod%2026%20=%2021%20\cdot%20(-1)%20\mod%2026%20=%2021%20\cdot%2025%20\mod%2026%20=%2019%bg=transparent)
 
 This gives us the letter **T**, which was the original letter before encryption.
 
