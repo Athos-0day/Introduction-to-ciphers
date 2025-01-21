@@ -1,6 +1,6 @@
 import euclide, sys, os, StatEnglish
 
-Char = "ABCDEFGHIJKLMNQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .?!,"
+Char = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .?!,"
 LenSymbol = len(Char)
 Verification = False 
 
