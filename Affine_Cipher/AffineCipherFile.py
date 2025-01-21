@@ -2,7 +2,7 @@ import euclide
 import os
 import sys
 
-Char = "ABCDEFGHIJKLMNQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .?!,"
+Char = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .?!,"
 LenSymbol = len(Char)
 
 Mykey = int(input("What is your key? "))
