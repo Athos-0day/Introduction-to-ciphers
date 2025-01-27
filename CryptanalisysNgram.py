@@ -113,8 +113,6 @@ def digram_frequency_analysis(text: str) -> dict:
 
     return digram_freq
 
-text = "The quick brown fox jumps over the lazy dog"
-digrams = digram_frequency_analysis(text)
-plot_digram_frequency_analysis(digrams)
+
 
 
