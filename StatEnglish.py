@@ -1,7 +1,7 @@
 #This file let to create a dictionnary of english words 
 #That is the goal of the first function 
 def LoadDictionnary() :
-    DictionnaryFile = open('Dictionnary.txt')
+    DictionnaryFile = open('dictionary.txt')
     EnglishDict = {}
     for word in DictionnaryFile.read().split('\n') :
         EnglishDict[word] = None
