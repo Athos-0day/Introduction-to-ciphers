@@ -65,3 +65,38 @@ To decrypt, we apply the inverse of the encryption function using the modular in
 
 - The Affine Cipher is easy to implement and use, but it is not secure for large-scale encryption due to its vulnerability to attacks like frequency analysis.
 - It provides a good introduction to basic encryption techniques and modular arithmetic in cryptography.
+
+## Substitution Cipher
+
+The **Substitution Cipher** is one of the oldest and simplest encryption methods, where each letter in the plaintext is replaced with another letter according to a fixed system or key. In the case of the **monoalphabetic substitution cipher**, each letter in the alphabet is replaced by a corresponding letter from a predefined key. The key is a permutation of the alphabet, where each letter is mapped uniquely to another letter in the alphabet, making the key a 26-character long string.
+
+### How it works
+
+For example, if the key is:  
+`QWERTYUIOPASDFGHJKLZXCVBNM`
+
+Then, the letter **A** in the plaintext would be replaced by **Q**, **B** by **W**, **C** by **E**, and so on. To encrypt a message, we simply replace each letter in the plaintext with the corresponding letter from the key. To decrypt, the reverse process is applied using the inverse of the key, where **Q** is replaced by **A**, **W** by **B**, and so on.
+
+### Example
+
+Let’s consider the message **"HELLO"** and the substitution key **`QWERTYUIOPASDFGHJKLZXCVBNM`**:
+
+- **H** becomes **A**
+- **E** becomes **Q**
+- **L** becomes **B**
+- **L** becomes **B**
+- **O** becomes **S**
+
+Thus, the encrypted message would be: **"AQBBS"**
+
+This cipher provides a simple way to encrypt messages, but it can easily be broken with techniques like frequency analysis, especially when the cipher is applied to large amounts of text.
+
+### Key Takeaways
+
+- The Substitution Cipher is a simple encryption technique, but it offers limited security due to its vulnerability to frequency analysis.
+- A key of length 26 means that each letter in the plaintext is substituted by another letter, and this permutation can be random or follow a specific pattern.
+- While easy to implement, the Substitution Cipher is not secure for modern cryptographic needs, but it provides a good foundation for understanding the basics of encryption.
+
+### How I hack the substitution cipher
+
+The goal was to recognize the patterns of each word and compare them with words in the dictionary. Thus, one can find which letter of the key is associated with which letter of the alphabet. This way, you get a partial result of the clear text but it is quite simple to complete when the text is long enough.
