@@ -100,3 +100,64 @@ This cipher provides a simple way to encrypt messages, but it can easily be brok
 ### How I hack the substitution cipher
 
 The goal was to recognize the patterns of each word and compare them with words in the dictionary. Thus, one can find which letter of the key is associated with which letter of the alphabet. This way, you get a partial result of the clear text but it is quite simple to complete when the text is long enough.
+
+## Vigenère Cipher 
+
+### Introduction
+
+The **Vigenère cipher** is a method of encrypting alphabetic text by using a simple form of polyalphabetic substitution. It uses a keyword where each letter of the plaintext is shifted by a number of positions in the alphabet based on the corresponding letter in the key. The Vigenère cipher is considered much more secure than the Caesar cipher because it uses multiple shifts rather than just one.
+
+#### Encryption Process
+
+To encrypt a message, the Vigenère cipher performs the following steps:
+
+1. Repeat the key as many times as needed to match the length of the plaintext.
+2. For each letter of the plaintext:
+   - Shift the letter by the number corresponding to the matching letter in the key.
+   - For example, if the key letter is `K`, the shift will be 10 positions forward (since `K` is the 11th letter of the alphabet, but zero-indexed).
+
+The formula for encrypting each character is:
+
+Where:
+- `C(i)` is the encrypted character,
+- `P(i)` is the plaintext character,
+- `K(i)` is the key character (converted to a number),
+- and the result is taken modulo 26 (the number of letters in the alphabet).
+
+#### Decryption Process
+
+To decrypt a message, the process is similar, but instead of shifting forward, you shift the characters backward by the value of the key letter.
+
+### Cracking the Vigenère Cipher
+
+The Vigenère cipher is vulnerable to cryptanalysis if the length of the key is short and the ciphertext is long enough. There are several methods to break the Vigenère cipher:
+
+#### 1. **Kasiski Examination**
+
+The Kasiski method is one of the most effective ways to break the Vigenère cipher. It works by looking for repeating patterns in the ciphertext. If a pattern repeats, it's likely that the same key has been used to encrypt both occurrences of the pattern. The distances between these repeating patterns can give us the length of the key.
+
+Steps for Kasiski Examination:
+- Look for repeating sequences in the ciphertext.
+- Calculate the distance between each repetition.
+- Find the factors of these distances, as the key length is likely to be one of these factors.
+
+#### 2. **Frequency Analysis**
+
+Once the key length is determined, the ciphertext can be divided into multiple subtexts. Each subtext corresponds to a different letter of the key. Then, a frequency analysis is performed on each subtext to determine the most frequent letters. In the English language, the most common letter is usually 'E'. By comparing the most frequent letter in each subtext with 'E', we can determine the shifts (i.e., the values of the key).
+
+#### Example of Frequency Analysis:
+1. Split the ciphertext into subtexts based on the key length.
+2. Perform frequency analysis on each subtext.
+3. The most frequent letter in each subtext will likely correspond to 'E' (in English).
+4. Calculate the shift for each subtext, which corresponds to one letter of the key.
+
+#### 3. **Brute Force (when the key length is small)**
+
+If the key length is small, it's also possible to use a brute-force approach. This involves trying all possible combinations of keys and decrypting the ciphertext until a readable message is found.
+
+### The Current Implementation
+
+The goal of the current implementation is to automate the process of determining the key length using the Kasiski method and then applying frequency analysis to deduce the key. However, there is an issue with the current implementation.
+
+
+
