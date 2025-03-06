@@ -6,7 +6,7 @@ def VigenereCipher(message,key,mode) :
     translated = []
     key = key.upper()
 
-    for symbol in message :
+    for symbol in message.upper() :
 
         num = LETTERS.find(symbol)
 
@@ -38,3 +38,4 @@ def DecryptVigenere(message,key) :
 
 def EncryptVigenere(message,key) :
     return VigenereCipher(message,key,'encrypt')
+
