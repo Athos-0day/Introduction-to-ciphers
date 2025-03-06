@@ -23,18 +23,25 @@ def find_pattern(text, patternLength=3) :
             patternDict[workText[index:index+patternLength]] = 1
             positionPatterndict[workText[index:index+patternLength]] = [index]
     
+    if len(patternDict)==0 :
+        return False
+    
+    finalDict = {}
     # Remove patterns that appear only once
     for pattern in patternDict :
-        if patternDict[pattern] <= 1 :
-            del patternDict[pattern]
-            del positionPatterndict[pattern]
+        if patternDict[pattern] > 1 :
+            finalDict[pattern] = positionPatterndict[pattern]
 
-    return (patternDict,positionPatterndict)
+    return finalDict
 
 
 #this function calculates the distance between patterns
 def calculate_distance(positionPatterndict : dict) :
     distances = {}
+
+    if len(positionPatterndict)==0 :
+        return False
+    
     for patterns in positionPatterndict :
         n = len(positionPatterndict[patterns])
         dist_list = []
@@ -48,6 +55,9 @@ def calculate_distance(positionPatterndict : dict) :
 #finding common factors in distances
 def find_factors(distances) :
     all_distances = []
+
+    if len(distances)==0 :
+        return False
 
     # Merge all distances in a list
     for dist_list in distances.values():
@@ -68,7 +78,7 @@ def find_factors(distances) :
 def kasiski_method(text) :
 
     # Find patterns and their positions
-    (patternDict,positionPatterndict) = find_pattern(text)
+    positionPatterndict = find_pattern(text)
 
     if not positionPatterndict :
         return "No repeats found to break the encryption."
@@ -89,4 +99,3 @@ def kasiski_method(text) :
 
     return key_length
 
-print(kasiski_method("Y'EL RJ TDWC HDBH QRB REPWDR DJTG GSH XUÈG IVÈV UGSV ADR WOH HH TDVHH"))
