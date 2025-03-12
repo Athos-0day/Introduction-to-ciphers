@@ -37,3 +37,12 @@ def MakeKeyFiles(name,keySize) :
     fo.write('%s,%s,%s' % (keySize, privateKey[0], privateKey[1]))
     fo.close()
 
+def main() :
+    keysize = 1024
+
+    name = "bob"
+
+    MakeKeyFiles(name,keysize)
+
+if __name__ == '__main__':
+    main() 
