@@ -40,7 +40,7 @@ def MakeKeyFiles(name,keySize) :
 def main() :
     keysize = 1024
 
-    name = "bob"
+    name = "Turing"
 
     MakeKeyFiles(name,keysize)
 
